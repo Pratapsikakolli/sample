@@ -1,0 +1,37 @@
+package MyPackage;
+
+import java.net.URL;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+
+public class AppiumExample {
+
+	public static void main(String args[]) throws Exception
+	{
+		 WebDriver driver;
+		  DesiredCapabilities capabilities = new DesiredCapabilities();
+////		  capabilities.setCapability(CapabilityType.BROWSER_NAME, "iOS");
+//		    capabilities.setCapability(CapabilityType.VERSION, "9.0");
+////		    capabilities.setCapability(CapabilityType.PLATFORM, "Mac");
+//		    capabilities.setCapability("device", "iPhone Simulator");
+//		    capabilities.setCapability("platform","Mac");
+//		    capabilities.setCapability("app", "safari");
+		    
+		    
+		  capabilities.setCapability("automationName", "Appium");
+		    capabilities.setCapability("deviceName", "iPhone 5s");
+	        capabilities.setCapability("platformName", "iOS");
+//	        capabilities.setCapability("platformVersion", "9.0");
+	        capabilities.setCapability("browserName", "Safari");
+//	        capabilities.setCapability("newCommandTimeout", "60");
+	        driver = new RemoteWebDriver(new URL("http://127.0.0.1:4723/wd/hub"),capabilities);
+	        Thread.sleep(10);
+	        driver.get("http://www.google.com");
+	        Thread.sleep(10);
+	        
+	        //driver.close();
+		}
+	
+}
